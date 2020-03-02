@@ -10,7 +10,7 @@ import (
 The content will be stored in the errorLog.
 An error in this function will be printed out in standartoutput
 */
-func writingToErrorLog(db *gorm.DB, user string, content string) {
+func WritingToErrorLog(db *gorm.DB, user string, content string) {
 
 	err := db.Save(&DbErrorLog{
 		InstanceID: itswizard_aws.GetInstance(),
