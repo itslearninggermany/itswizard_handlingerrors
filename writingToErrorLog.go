@@ -1,15 +1,16 @@
 package itswizard_handlingerrors
 
 import (
+	"fmt"
 	"github.com/itslearninggermany/itswizard_aws"
 	"github.com/jinzhu/gorm"
-	"fmt"
-	)
+)
 
 /*
 The content will be stored in the errorLog.
- */
-func writingToErrorLog (db *gorm.DB, user string, content string) {
+An error in this function will be printed out in standartoutput
+*/
+func writingToErrorLog(db *gorm.DB, user string, content string) {
 
 	err := db.Save(&DbErrorLog{
 		InstanceID: itswizard_aws.GetInstance(),
