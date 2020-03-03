@@ -18,7 +18,7 @@ func ExecuteAMessage(tpl *template.Template, dbWebserver *gorm.DB, language stri
 	var site itswizard_basic.Site
 	if dbWebserver.Where("name = ? AND language = ?", sitename, language).Find(&dbHtmlContent).RecordNotFound() {
 		site = itswizard_basic.Site{
-			Sitename: sitename,
+			Sitename: "sitename",
 			Special: itswizard_basic.MessageStruct{
 				Headline:     "headline",
 				Message:      "message",
@@ -29,13 +29,13 @@ func ExecuteAMessage(tpl *template.Template, dbWebserver *gorm.DB, language stri
 		}
 	} else {
 		site = itswizard_basic.Site{
-			Sitename: sitename,
+			Sitename: dbHtmlContent.Field0,
 			Special: itswizard_basic.MessageStruct{
-				Headline:     dbHtmlContent.Field0,
-				Message:      dbHtmlContent.Field1,
-				TargetClose:  dbHtmlContent.Field2,
-				TargetSubmit: dbHtmlContent.Field3,
-				Buttontext:   dbHtmlContent.Field4,
+				Headline:     dbHtmlContent.Field1,
+				Message:      dbHtmlContent.Field2,
+				TargetClose:  dbHtmlContent.Field3,
+				TargetSubmit: dbHtmlContent.Field4,
+				Buttontext:   dbHtmlContent.Field5,
 			},
 		}
 	}
