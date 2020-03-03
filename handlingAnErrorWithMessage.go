@@ -1,3 +1,6 @@
+// Copyright 2020 Thomas Nordmann. All rights reserved.
+
+// Package itswizard_handlingerrors bearbeitet Fehlermeldung und Benachrichtigungen.
 package itswizard_handlingerrors
 
 import (
@@ -28,7 +31,7 @@ func handlingAnErrorWithMessage(tpl *template.Template, webserverdatabase *gorm.
 
 		er := tpl.ExecuteTemplate(w, "message.html", site)
 		if er != nil {
-			WritingToErrorLog(webserverdatabase, "", fmt.Sprint(err))
+			WritingToErrorLog(webserverdatabase, "", fmt.Sprint(er))
 			fmt.Println(err)
 		}
 		return true
