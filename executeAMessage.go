@@ -2,7 +2,6 @@ package itswizard_handlingerrors
 
 import (
 	"fmt"
-	"github.com/aws/aws-sdk-go/service/elasticbeanstalk"
 	"github.com/itslearninggermany/itswizard_basic"
 	"github.com/jinzhu/gorm"
 	"html/template"
